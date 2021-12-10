@@ -9,15 +9,13 @@ var app = new Vue({
     methods: {
         addToDo: function(){
             let trimmed = this.tmp.trim()
-            if((trimmed) && (trimmed.length > 4)){
-                this.toDoArray.push(
-                    {
-                    toDoText: trimmed,
-                    toDoBool: false
-                }
-                );
-                this.tmp = '';
+            this.toDoArray.push(
+                {
+                toDoText: trimmed,
+                toDoBool: false
             }
+            );
+            this.tmp = '';
         },
         removeToDo: function(index){
             this.toDoArray.splice(index,1);

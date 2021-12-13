@@ -5,17 +5,23 @@ var app = new Vue({
     data: {
         tmp: '',
         toDoArray: [],
+        trimmed: ''
     },
     methods: {
         addToDo: function(){
-            let trimmed = this.tmp.trim()
-            this.toDoArray.push(
-                {
-                toDoText: trimmed,
-                toDoBool: false
+            this.trimmed = this.tmp.trim()
+            if(this.trimmed.length > 3){
+                this.toDoArray.push(
+                    {
+                    toDoText: this.trimmed,
+                    toDoBool: false
+                }
+                );
+                this.tmp = '';
             }
-            );
-            this.tmp = '';
+            else{
+                this.tmp = '';
+            }
         },
         removeToDo: function(index){
             this.toDoArray.splice(index,1);
